@@ -1,0 +1,8 @@
+
+<suite name="Tasks Suite" parallel="methods" thread-count="2">
+    <test name="Test1">
+        <classes>
+            <class name="test.testPackage.FirstTest"/>
+        </classes>
+    </test>
+</suite>
