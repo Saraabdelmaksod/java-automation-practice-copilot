@@ -15,27 +15,10 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class FirstTest {
-
-    RemoteWebDriver driver;
-    ChromeOptions options;
-    SoftAssert softAssert=new SoftAssert();
-    Actions actions;
-    boolean logoStatus;
-
-    @BeforeMethod
-    public void openBrowser(){
-
-        options= new ChromeOptions();
-       // options.enableBiDi().setPageLoadStrategy(PageLoadStrategy.NORMAL).addArguments("--headless", "start-maximized");
-
-        options.enableBiDi().setPageLoadStrategy(PageLoadStrategy.NORMAL).addArguments("start-maximized");
-        driver  =new ChromeDriver(options);
-    }
+public class FirstTest extends BaseTest {
 
     @Test
     public void validateThatPageTitleIsCorrect(){
-
         driver.get("https://duckduckgo.com");
         //softAssert for continue the test even if the first assert fails
         softAssert.assertTrue(driver.getTitle().contains("Google"), "Title is not as expected");
@@ -44,7 +27,6 @@ public class FirstTest {
 
     @Test
     public void validateThatPageTitleIsCorrect2(){
-
         driver.get("https://duckduckgo.com");
         //softAssert for continue the test even if the first assert fails
         softAssert.assertEquals("Google", driver.getTitle(), "Title is not as expected");
@@ -109,8 +91,5 @@ public class FirstTest {
 
 
     }
-    @AfterMethod
-    public void closeBrowser(){
-       driver.quit();
-    }
+
 }
